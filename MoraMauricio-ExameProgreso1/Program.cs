@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MoraMauricio_ExameProgreso1.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MoraMauricio_ExameProgreso1Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MoraMauricio_ExameProgreso1Context") ?? throw new InvalidOperationException("Connection string 'MoraMauricio_ExameProgreso1Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

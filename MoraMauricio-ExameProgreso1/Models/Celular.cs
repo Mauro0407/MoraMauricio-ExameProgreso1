@@ -9,10 +9,12 @@ namespace MoraMauricio_ExameProgreso1.Models
         public int Id { get; set; }
         [MaxLength(100)]
         public string Modelo { get; set; }
-        [MaxLength(50)]
-        public Decimal Precio { get; set; }
-        public DateTime Año { get; set; }
-        [ForeignKey("IdCelular")]
-        public Boolean IdCelular { get; set; }
+        [Range(0, 100)]
+        public int Año { get; set; }
+        [MaxLength(100)]
+        public decimal Precio { get; set; }
+        public int MMoraId { get; set; }
+        [MaxLength(100)]
+        public MMora EArmas { get; set; }
     }
 }
